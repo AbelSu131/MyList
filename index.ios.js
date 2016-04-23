@@ -11,34 +11,47 @@ var {
 	Component,
 	StyleSheet,
 	Text,
-	View
+	View,
+	Image,
+	ListView,
 } = React;
-var DATA = {
+var DATA = [{
 	"id": "1",
 	"name": "Android Design Support Library 兼容库使用详解",
 	"img": "http://a1.jikexueyuan.com/home/201510/13/1c73/561c68d71ce03.jpg",
 	"teacher": "大姑爷",
 	"add_time": "2015-07-01",
 	"url": "http://www.jikexueyuan.com/course/2117.html"
-};
+}, {
+	"id": "2",
+	"name": "Android Design Support Library 数据绑定库详解",
+	"img": "http://a1.jikexueyuan.com/home/201507/03/921b/5595f2d84eb7d.jpg",
+	"teacher": "大姑爷",
+	"add_time": "2015-07-15",
+	"url": "http://www.jikexueyuan.com/course/1521.html"
+}, ];
 
 var MyList = React.createClass({
 	render: function() {
 		return (
 			<View style={styles.container}>
-
+				<ListView />     
+       		</View>
+		);
+	},
+	item: function() {
+		return (
+			<View style={styles.container}>
+			<Image source={{uri:DATA.img}} style={styles.images} />
         		<Text style={styles.title}>
-          			{DATA.name}
+          			标题
         		</Text>
-
         		<Text style={styles.teacher}>
-          			{DATA.teacher}
+          			大姑爷
         		</Text>
-
         		<Text style={styles.time}>
-          			{DATA.add_time}
-        		</Text>
-        
+          			2015-12-03
+        		</Text>      
        		</View>
 		);
 	}
@@ -47,24 +60,30 @@ var MyList = React.createClass({
 var styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center',
 		backgroundColor: '#F5FCFF',
 	},
 	title: {
 		fontSize: 15,
-		textAlign: 'center',
-		margin: 10,
+		textAlign: 'left',
+		color: '#333333',
+		marginLeft: 10,
 	},
 	teacher: {
 		fontSize: 13,
-		textAlign: 'center',
-		margin: 10,
+		textAlign: 'left',
+		color: '#525252',
+		marginLeft: 10,
 	},
 
 	time: {
 		fontSize: 13,
-		textAlign: 'center',
+		textAlign: 'left',
+		color: '#2d85ca',
+		marginLeft: 10,
+	},
+	images: {
+
+		height: 200,
 		margin: 10,
 	},
 
