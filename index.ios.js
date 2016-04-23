@@ -15,6 +15,7 @@ var {
 	Image,
 	ListView,
 } = React;
+/*
 var DATA = [{
 	"id": "1",
 	"name": "Android Design Support Library 兼容库使用详解",
@@ -30,6 +31,7 @@ var DATA = [{
 	"add_time": "2015-07-15",
 	"url": "http://www.jikexueyuan.com/course/1521.html"
 }, ];
+*/
 
 var MyList = React.createClass({
 
@@ -44,12 +46,12 @@ var MyList = React.createClass({
 
 	render: function() {
 		return (
-			<View style={styles.container}>
-				<ListView
+
+			<ListView
 				dataSource={this.state.dataSource}
 				renderRow={this.item}
-				/>     
-       		</View>
+				/>
+
 		);
 	},
 	item: function(course) {
@@ -73,7 +75,10 @@ var MyList = React.createClass({
 var styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#F5FCFF',
+		backgroundColor: '#f2f2f2',
+		margin: 5,
+		borderWidth: 1,
+		borderColor: '#d2d2d2',
 	},
 	title: {
 		fontSize: 15,
