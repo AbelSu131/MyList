@@ -32,25 +32,38 @@ var DATA = [{
 }, ];
 
 var MyList = React.createClass({
+
+	getInitialState: function() {
+		var ds = new ListView.DataSource({
+			rowHasChanged: (r1, r2) => r1 !== r2
+		});
+		return {
+			dataSource: ds.cloneWithRows(DATA),
+		};
+	},
+
 	render: function() {
 		return (
 			<View style={styles.container}>
-				<ListView />     
+				<ListView
+				dataSource={this.state.dataSource}
+				renderRow={this.item}
+				/>     
        		</View>
 		);
 	},
-	item: function() {
+	item: function(course) {
 		return (
 			<View style={styles.container}>
-			<Image source={{uri:DATA.img}} style={styles.images} />
+			<Image source={{uri:course.img}} style={styles.images} />
         		<Text style={styles.title}>
-          			标题
+          			{course.name}
         		</Text>
         		<Text style={styles.teacher}>
-          			大姑爷
+          			{course.teacher}
         		</Text>
         		<Text style={styles.time}>
-          			2015-12-03
+          			{course.add_time}
         		</Text>      
        		</View>
 		);
